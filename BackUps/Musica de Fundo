@@ -1,0 +1,143 @@
+<audio Som id="Som">
+		Seu navegador não possui suporte ao elemento Som
+</audio >
+	<progress id="barra_progresso" max="0" value="0"></progress>
+	<div>
+		<a href="#" onclick="play()">Play</a>
+		<a href="#" onclick="pause()">Pause</a>
+		<a href="#" onclick="stop()">Stop</a>
+	</div>
+	<div id="nome_musica"></div>
+	<span id="tempo_atual">00:00:00</span> /
+	<span id="tempo_total">00:00:00</span>
+	 
+	<script>
+		var i = 0;
+		var musicas =   [
+				{ mp3:'file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/Musica_da_Mitagem_1_0.mp3' , ogg:'file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/Musica_da_Mitagem_1_0.ogg' , titulo:'Musica da Bolagem'},
+				{ mp3:'file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/Yu-Gi-Oh%20Theme%20Song%20Trap%20Remix.mp3', mp3:'file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/Yu-Gi-Oh%20Theme%20Song%20Trap%20Remix.ogg' , titulo:'Yu-Gi-Oh - Remix'}
+				]; 
+		Som = document.getElementById('Som');
+				 
+		Som.addEventListener('canplay', play_evento , false);
+		Som.addEventListener('timeupdate', atualizar , false);
+		Som.addEventListener('ended', proxima , false);
+	 
+		function play(){
+			proxima();
+		}
+	 
+		function pause(){
+			Som.pause();
+		}
+	 
+		function stop(){
+			Som.pause();
+			Som.currentTime = 0;
+		}
+	 
+		function play_evento(){
+			document.getElementById('tempo_atual').innerHTML = secToStr( Som.currentTime) ;
+			document.getElementById('tempo_total').innerHTML = secToStr( Som.duration );
+			document.getElementById('barra_progresso').max = Som.duration;
+			document.getElementById('barra_progresso').value = Som.currentTime;
+		}
+	 
+		function atualizar(){
+			document.getElementById('tempo_atual').innerHTML = secToStr( Som.currentTime);
+			document.getElementById('barra_progresso').value = Som.currentTime;
+		}
+	 
+		function proxima(){
+			if(Som.canPlayType("Som/mp3") != ''){
+				Som.src = musicas[i].mp3;
+			}else{
+				Som.src = musicas[i].ogg;
+			}
+			document.getElementById('nome_musica').innerHTML = musicas[i].titulo;
+			Som.play();
+	 
+			i++;
+			if( i >= musicas.length ) i = 0;
+		}
+	 
+		function secToStr( sec_num ) {
+			sec_num = Math.floor( sec_num );
+			var horas   = Math.floor(sec_num / 3600);
+			var minutos = Math.floor((sec_num - (horas * 3600)) / 60);
+			var segundos = sec_num - (horas * 3600) - (minutos * 60);
+	 
+			if (horas   < 10) {horas   = "0"+horas;}
+			if (minutos < 10) {minutos = "0"+minutos;}
+			if (segundos < 10) {segundos = "0"+segundos;}
+			var tempo    = horas+':'+minutos+':'+segundos;
+			return tempo;
+		}
+	</script>
+
+
+
+
+
+
+<audio id="som">
+		<source src="file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/Musica_da_Mitagem_1_0.ogg" type="audio/ogg">
+		<source src="file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/Musica_da_Mitagem_1_0.mp3" type="audio/mpeg">
+			Seu navegador não possui suporte ao elemento som		
+</audio>
+<progress id="barra_progresso" max="0" value="0"></progress>
+<div>
+    <a href="#" onclick="play()">Play</a>
+    <a href="#" onclick="pause()">Pause</a>
+    <a href="#" onclick="stop()">Stop</a>
+</div>
+<span id="tempo_atual">00:00:00</span> /
+<span id="tempo_total">00:00:00</span>
+ 
+<script>
+    som = document.getElementById('som');
+     
+    som.addEventListener('play', play_evento , false);
+    som.addEventListener('timeupdate', atualizar , false);
+ 
+    function play(){
+        som.play();
+    }
+ 
+    function pause(){
+        som.pause();
+    }
+ 
+    function stop(){
+        som.pause();
+        som.currentTime = 0;
+    }
+ 
+    function play_evento(){
+        document.getElementById('tempo_atual').innerHTML = secToStr( som.currentTime) ;
+        document.getElementById('tempo_total').innerHTML = secToStr( som.duration );
+ 
+        document.getElementById('barra_progresso').max = som.duration;
+        document.getElementById('barra_progresso').value = som.currentTime;
+    }
+ 
+    function atualizar(){
+        document.getElementById('tempo_atual').innerHTML = secToStr( som.currentTime);
+        document.getElementById('barra_progresso').value = som.currentTime;
+    }
+ 
+    function secToStr( sec_num ) {
+        sec_num = Math.floor( sec_num );
+        var horas   = Math.floor(sec_num / 3600);
+        var minutos = Math.floor((sec_num - (horas * 3600)) / 60);
+        var segundos = sec_num - (horas * 3600) - (minutos * 60);
+         
+        if (horas   < 10)  horas    = "0"+horas;
+        if (minutos < 10)  minutos  = "0"+minutos;
+        if (segundos < 10) segundos = "0"+segundos;
+         
+        var tempo    = horas+':'+minutos+':'+segundos;
+         
+        return tempo;
+    }
+</script>

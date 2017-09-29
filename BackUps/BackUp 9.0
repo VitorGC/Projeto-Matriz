@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml/DTD/xhtml-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src = "JQuerys/jquery-3.2.1.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset-UTF-8"/>
+	<link type="text/javascript" src = "script.js">
+	<link rel="stylesheet" type="text/css" href="aspect.css">
+	<title>Funções Modificadoras</title>
+
+<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<input type="checkbox" id="check">
+	<label id="icone" class = "discord" for="check"><img src = "IMG/discord_logo.png" style="width:50px; height: 50px;"></label>
+
+	<div class="barra">
+		<nav class="menu" id="principal">
+
+			<ul>
+				<h1><small>"  Creators</small></h1>
+				<li><a href="#" class="voltar"><div class="link">Voltar</div></a></li>
+				<li><a href="#Vitor" ><div class="link"> Vitor Garcia <span>+</span></div></a></li>
+				<li><a href="#Joao" ><div class="link"> João Pedro <span>+</span></div></a></li>
+			</ul>
+
+		</nav>
+
+		<nav class = "menu" id = "Vitor">
+			<ul>
+				<li><a href="#" class="voltar"><div class="link">Voltar</div></a></li>
+				<li><a href="#" ><div class="link" onclick="abrir('https://www.facebook.com/vitor.garcia.5055')"> facebook</div></a></li>
+				<li><a href="#" ><div class="link" onclick="abrir('https://www.linkedin.com/in/vitorgcastilho')"> linkedin</div></a></li>
+			</ul>
+		</nav>
+
+		<nav class = "menu" id = "Joao">
+			<ul>
+				<li><a href="#" class="voltar"><div class="link">Voltar</div></a></li>
+				<li><a href="#" ><div class="link" onclick="abrir('https://www.facebook.com/profile.php?id=100001232704668')"> facebook</div></a></li>
+				<li><a href="#" ><div class="link" onclick="abrir('https://www.linkedin.com/in/jo%C3%A3o-pedro-da-silva-5b426b133')"> linkedin</div></a></li>
+			</ul>
+		</nav>
+
+
+			<label id="logoType"><img src="IMG/Logo.png" class="logoType"></label>
+
+	</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		 <div class="panel panel-default">
+		  <div class="papel-body">
+
+		  	<div class="page-header"> 
+		  	<!-- cabeçalho-->
+		  		<h1>COMANDOS <br /><small> CRIAÇÃO DE MATRIZ</small></h1>
+		  	</div>
+		  	<form class="form-inline" id="Linha" method="get">
+		  	 <input type="text" id="newTask" placeholder="New Task" class="form-control" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg)" />
+
+		  	 <input class="add" type="button" id="add" name="btn btn-sucess" value="Add" onclick="mostrarValor()"/>
+		  	</form>
+			  <br />
+
+			<div>
+				<progress id="barra_progresso" max="0" value="0" style = "width:144px; height: 20px;"></progress>
+				<div>
+					<button href="#" class = "music-form" onclick="play()">Play</a>
+					<button href="#" class = "music-form" onclick="pause()">Pause</a>
+					<button href="#" class = "music-form" onclick="stop()">Stop</a>
+				</div>
+				<span id="tempo_atual">00:00:00</span> /
+				<span id="tempo_total">00:00:00</span>
+			
+			</div>
+				
+				<div class="dropdown" id = "centro" style = "left: 50px">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Selecione o Metodo
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+					  <li><a href="#" onclick="display_cover('botoes')" >TRIANGULACAO GAUSS</a></li>
+					  <li><a href="#" onclick="display_cover('button')" >GAUSS SYNDRA</a></li>
+					</ul>
+				</div> 
+			<div id = "centro" >
+				<div id = "botoes">		
+						<button class="tamanho" style = "display: none" onclick="newcell()">Add New Cell</button>
+						<button class="tamanho" style = "display: none" onclick="removecell()">Remove Cell</button><br />
+						<button class="tamanho" onclick="doNow()">Fazer Matriz</button>
+						<button class="tamanho" onclick="neoCell()">Add column B</button><br />
+						<button class="tamanho" onclick="altervalues()">Alter Cell</button>
+						<button class="tamanho" onclick="createtable()">Create Table</button><br />
+						<button class="tamanho" style = "display: none" onclick="createNewRow()">Add New Row</button>
+						<button class="tamanho" style = "display: none" onclick="deleterow()">Remove Row</button><br />
+						
+				</div>
+				<div id = "button">
+
+				</div>
+			</div>
+		  </div>
+		 </div>
+		</div>
+
+
+		<div class="col-md-8" >
+		 <div class="panel panel-default">
+		  <div class="papel-body">
+		  	<div class="page-header" >
+		  	 <h1>MATRIZ <small> CRIAÇÃO COMPLETA</small></h1>
+		  	</div>
+
+			<div class="scrollbar-vista" style="overflow-x:auto; overflow-y: auto; width: 745px; height: 470px;">
+		  	<table id = "tabelaaspec"  >
+				<caption><h2>Matriz</h2></caption>
+						<tr id = "myRow">
+							<td>SeLoiroMTTrab</td>
+						</tr>
+			</table><br>				
+			</div>
+				<input class="cont" type="button" onclick="contaLinhasTabela('tabelaaspec');" value="Contar Matriz"/>
+				<button class="cont" href="#" onclick=foundX()>Found X</a>
+		  </div>
+		 </div>
+		</div>
+		
+		<input type="checkbox" id="checkX">
+		<label id="iconeX" class = "X" for="checkX"><img src = "IMG/X_logo.png" style="width:50px; height: 50px;"></label>
+
+		<div class="barraX" class="scrollbar-vista" style="overflow-x:auto; overflow-y: auto;">
+					<div >
+						<table id = "tabelaaspecX"  >
+							<caption><h2>X - Found</h2></caption>
+							<tr id = "xRow">
+								<td>TableX</td>
+							</tr>	
+						</table><br>					
+					</div>
+
+			
+					<label id="logoTypeX"><img src="IMG/Logo.png" class="logoTypeX"></label>
+			
+		</div>	
+
+	</div>
+
+</div>
+
+
+
+
+
+<audio id="som" loop autoplay>
+		<source src="Musics/I%20Am%20Blue.ogg" type="audio/ogg">
+		<source src="Musics/I%20Am%20Blue.mp3" type="audio/mpeg">
+			Seu navegador não possui suporte ao elemento som		
+</audio>
+
+<style type="text/css">
+	html{
+		overflow-x:hidden;
+	}
+</style>
+
+<script>
+    som = document.getElementById('som');
+     
+    som.addEventListener('play', play_evento , false);
+    som.addEventListener('timeupdate', atualizar , false);
+ 
+    function play(){
+        som.play();
+    }
+ 
+    function pause(){
+        som.pause();
+    }
+ 
+    function stop(){
+        som.pause();
+        som.currentTime = 0;
+    }
+ 
+    function play_evento(){
+        document.getElementById('tempo_atual').innerHTML = secToStr( som.currentTime) ;
+        document.getElementById('tempo_total').innerHTML = secToStr( som.duration );
+ 
+        document.getElementById('barra_progresso').max = som.duration;
+        document.getElementById('barra_progresso').value = som.currentTime;
+    }
+ 
+    function atualizar(){
+        document.getElementById('tempo_atual').innerHTML = secToStr( som.currentTime);
+        document.getElementById('barra_progresso').value = som.currentTime;
+    }
+ 
+    function secToStr( sec_num ) {
+        sec_num = Math.floor( sec_num );
+        var horas   = Math.floor(sec_num / 3600);
+        var minutos = Math.floor((sec_num - (horas * 3600)) / 60);
+        var segundos = sec_num - (horas * 3600) - (minutos * 60);
+         
+        if (horas   < 10)  horas    = "0"+horas;
+        if (minutos < 10)  minutos  = "0"+minutos;
+        if (segundos < 10) segundos = "0"+segundos;
+         
+        var tempo    = horas+':'+minutos+':'+segundos;
+         
+        return tempo;
+    }
+</script>
+
+
+<script type="text/javascript">
+
+	var l = 0;
+	var num;
+	var tabExiste = 0;
+	var Xencontrado = 0;
+	num = prompt ("digite a quantidade de elementos da matriz: ");
+	var final = num;
+	final++;
+
+	var X = new Array(num);
+
+	var audio = null;
+	var classes = ['tamanho', 'add', 'cont'];
+	for(var i = 0; i < classes.length; i++) {
+		var elements = document.getElementsByClassName(classes[i]);
+		for(var j = 0; j < elements.length; j++) {
+			/*elements[j].onclick = function(event) {
+				event.preventDefault();
+				audio = document.createElement('audio');
+				audio.src = 'file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/CLICK14A.wav';
+				audio.autoplay = true;
+				document.body.appendChild(audio);
+			}*/
+			elements[j].onmouseover = function(event) {
+				event.preventDefault();
+				audio = document.createElement('audio');
+				audio.src = 'file:///V:/DracoGC/Documents/Trabalho(BRUNO)/Projeto1/Musics/CLICK14A.wav';
+				audio.autoplay = true;
+				document.body.appendChild(audio);
+			}
+		}
+	}
+
+
+function abrir(URL) {
+ 
+	var width = 720;
+	var height = 480;
+	
+	var left = 99;
+	var top = 99;
+	
+	window.open(URL,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=yes, status=no, toolbar=no, location=yes, directories=no, menubar=no, resizable=no, fullscreen=no');
+}
+
+$('input[type=text]').on('keydown', function(e) {
+    if (e.which == 13) {
+		e.preventDefault();
+		mostrarValor();
+    }
+});
+
+function display_cover(el) {
+	var display = document.getElementById(el).style.display;
+	console.log(display);
+	document.getElementById(el).style.display = 'block';
+}
+
+function contaLinhasTabela(id){  
+	var tabela = document.getElementById(id);  
+	var linhas = tabela.getElementsByTagName('tr');  
+	alert('A matriz "' + id +'" possui ' + (linhas.length - 1)+ ' linhas');  
+	alert('A matriz "' + id +'" possui ' + (linhas.length - 1)+ ' colunas');
+}  
+
+function newcell() {
+	var row = document.getElementById("myRow");
+	var x = row.insertCell(-1);
+	x.innerHTML = "0";
+	altervaluesR();
+}
+
+function neoCell(){
+	var x = document.getElementById("tabelaaspec").rows[0].insertCell(-1);
+		x.innerHTML = " B";	
+	for(var i = 1; i <= num; i++){
+		var valor = prompt("Qual o valor da linha " + i);
+		var x = document.getElementById("tabelaaspec").rows[i].insertCell(-1);
+		x.innerHTML = valor;
+	}
+}
+
+function completecells() {
+	for(var i = 0; i < num; i++){
+	    var row = document.getElementById("myRow");
+	    var x = row.insertCell(-1);
+	    x.innerHTML = "0";
+	}
+}
+
+function removecell() {
+    var row = document.getElementById("myRow");
+    row.deleteCell(-1);
+}
+
+function newrow() {
+    var table = document.getElementById("tabelaaspec");
+    var row = table.insertRow(-1);
+    for(var i = 0; i <= num; i++){
+    	var cell = row.insertCell(i);
+    	cell.innerHTML = "0";   	
+    }
+}
+
+function createNewRow() {
+    var table = document.getElementById("tabelaaspec");
+    var row = table.insertRow(-1);
+    for(var i = 0; i <= num; i++){
+    	var cell = row.insertCell(i);
+    	cell.innerHTML = "0";   	
+	}
+	altervaluesC();
+	l++;
+}
+
+function deleterow() {
+	var row = document.getElementById("tabelaaspec");
+    row.deleteRow(-1);
+	l--;
+}
+
+function altervalues() {
+	var control = 0;
+	do{
+		var l = prompt("Digite a Linha para Alterar: ");
+		var c = prompt("Digite a Coluna para Alterar: ");
+		var data = prompt("Digite o Dado para Alterar: ");
+		if(((l || c) == 0) || ((l || c) > num)){
+			alert("Posição não Encontrada!!");
+		}else{
+			var x = document.getElementById("tabelaaspec").rows[l].cells;
+			x[c].innerHTML = data;
+			control = 1;
+		}	
+	}while(control == 0);
+
+	control = 0;
+}
+
+function altervaluesLinha(l,c,dado){
+	var coluna = c+1;
+	var x = document.getElementById("tabelaaspec").rows[l].cells;
+    x[coluna].innerHTML = dado;
+}
+
+function altervaluesR() {
+	var x = document.getElementById("tabelaaspec").rows[0].cells;
+	
+	x[0].innerHTML = "Table";	
+	
+	var x = document.getElementById("tabelaaspec").rows[0].cells;
+
+	for(var i = 1; i <= num; i++){
+    	x[i].innerHTML = "X" + i;		
+	}
+
+}
+
+function altervaluesC() {
+	for(var i = 1; i <= num; i++){
+   		var x = document.getElementById("tabelaaspec").rows[i].cells;
+    	x[0].innerHTML = "Linha " + i;
+	}
+}
+
+function createtable() {
+	if(tabExiste == 1){
+		alert("Já existe uma tabela criada!!!");
+	}else{
+		completecells();
+		altervaluesR();
+		for(var i = 0; i < num; i++){
+			newrow();
+		}
+		altervaluesC();
+		tabExiste = 1;
+	}
+}
+
+
+function splitString(stringToSplit, separator) {
+	var arrayOfStrings = stringToSplit.split(separator);
+
+	console.log('A string original é: "' + stringToSplit + '"');
+	console.log('O separador é: "' + separator + '"');
+	console.log('O array tem ' + arrayOfStrings.length + ' elementos: ' + arrayOfStrings.join(' / '));
+	console.log(arrayOfStrings);
+
+	if(arrayOfStrings.length == num){
+		if(l == num){
+			alert("Impossivel criar novas linhas");
+		}else{
+			l++;
+		if(l<=num){
+		alert('!!Task Aceita!!');
+			for(var i = 0; i < num; i++){
+				altervaluesLinha(l,i,arrayOfStrings[i]);
+				console.log(arrayOfStrings[i]);
+			}
+		}
+		}
+
+
+	}else{
+		alert('Task Inválida');
+	}
+}
+
+function mostrarValor() {
+	if(tabExiste == 1){
+		//alert(document.getElementById("newTask").value);
+		var captura = document.getElementById("newTask").value;
+		document.getElementById("Linha").reset();
+		splitString(captura," ");
+	}else{
+		alert("Crie a tabela!!!");
+		
+	}
+
+}
+
+function doNow(){
+
+	var maior = 0;
+	var linha;
+	var teste;
+	if(tabExiste == 1){
+		
+		for(var i = 1; i <=num; i++){
+
+			for(var j = i; j <= num; j++){
+				
+				var x = document.getElementById("tabelaaspec").rows[j].cells;
+				
+				teste = x[i].firstChild.nodeValue;
+				teste = teste;
+
+				if(teste > maior){
+					maior = teste;
+					linha = j;
+					//console.log(maior, linha);
+				}
+			}
+			
+			organiza(linha, i);
+			organizaB(linha, i);
+			//console.log("Prox");		
+			if(i < num){
+				metodoDeGauss(i);
+			}
+			
+			maior = 0
+		}
+
+		findX();
+
+	}else{
+		alert("Crie a tabela!!!");
+	}	
+
+}
+
+function organiza(linhaMai, linhaMen){
+	var dado1;
+	var dado2;
+	//console.log("teste");
+	var x = document.getElementById("tabelaaspec").rows[linhaMai].cells;
+	var y = document.getElementById("tabelaaspec").rows[linhaMen].cells;
+
+	for(var i = 1; i <= num; i++){
+		dado1 = x[i].firstChild.nodeValue;
+
+		dado2 = y[i].firstChild.nodeValue;
+
+		y[i].innerHTML = dado1;
+		x[i].innerHTML = dado2;
+	}
+
+}
+
+function organizaB(linhaMai, linhaMen){
+	var dado1;
+	var dado2;
+	//console.log("teste");
+	var x = document.getElementById("tabelaaspec").rows[linhaMai].cells;
+	var y = document.getElementById("tabelaaspec").rows[linhaMen].cells;
+
+		dado1 = x[final].firstChild.nodeValue;
+
+		dado2 = y[final].firstChild.nodeValue;
+
+		y[final].innerHTML = dado1;
+		x[final].innerHTML = dado2;
+}
+
+function metodoDeGauss(linha){
+	var linhaPos = (linha + 1);
+	var achou;
+
+	var x = document.getElementById("tabelaaspec").rows[linha].cells;
+
+	for(var j = linhaPos; j <= num; j++){
+		var y = document.getElementById("tabelaaspec").rows[j].cells;		
+		achou = y[linha].firstChild.nodeValue;
+		achou = achou;
+		//console.log("Achou "+achou);
+		if(achou != 0){
+			realizaGauss(linha, j);
+		}
+
+		achou = 0;
+
+	}
+
+}
+
+function realizaGauss(linhaI, linhaJ){
+	var dado1;
+	var dado2;
+	var dado3;
+	var dado4;
+	var resp;
+	console.log("vai zerar na linha " +linhaI+ ", com a linha " +linhaJ);
+	var x = document.getElementById("tabelaaspec").rows[linhaI].cells;
+	var y = document.getElementById("tabelaaspec").rows[linhaJ].cells;
+
+	for(var i = linhaI; i <= num; i++){
+
+		var x = document.getElementById("tabelaaspec").rows[linhaI].cells;
+		var y = document.getElementById("tabelaaspec").rows[linhaJ].cells;
+
+		dado1 = x[i].firstChild.nodeValue;
+
+		dado2 = y[i].firstChild.nodeValue;
+
+		if(i == linhaI){
+			dado3 = dado1;
+			dado4 = dado2;
+		}
+
+		console.log(dado1, dado2);
+
+		resp = ( dado1 * dado4 - ( dado2 * dado3 ) );
+		console.log(resp);
+
+		y[i].innerHTML = resp;
+	}
+	var x = document.getElementById("tabelaaspec").rows[linhaI].cells;
+	var y = document.getElementById("tabelaaspec").rows[linhaJ].cells;
+
+	dado1 = x[final].firstChild.nodeValue;
+
+	dado2 = y[final].firstChild.nodeValue;
+
+	resp = ( dado1 * dado4 - ( dado2 * dado3 ) );
+
+	y[final].innerHTML = resp;
+
+	alert("chegou em um ponto de stop");
+}
+
+function findX(){
+
+	var colunaAux = final;
+	var resp = 0;;
+	var dif;
+	var dado = 0;
+	var isFirst = 0;
+	var aux;
+	var c = num;
+
+	for(var linha = num; linha >= 1; linha--){
+		dif = (colunaAux - linha);
+		for(var coluna = final, aux = dif; aux > 0; aux--, coluna--){
+
+			if(isFirst == 0){
+				resp = captaDado(linha, coluna);
+				console.log("Resp: " + resp);
+				dado = resp;
+				dado = parseFloat(dado);
+				isFirst = 1;
+			} else{
+				resp = captaDado(linha, coluna);
+				console.log("Resp: " + resp);
+				dado = dado - resp
+				dado = parseFloat(dado);
+			}
+
+		}
+
+		var x = document.getElementById("tabelaaspec").rows[linha].cells;
+
+		var dado1 = x[linha].firstChild.nodeValue;
+		dado1 = parseFloat(dado1);
+
+		console.log("Dado das Somas: " + dado);
+		console.log("Dado1(PIVO): " + dado1 + " na linha: " + linha);
+		
+		dado = dado/dado1;
+		
+		console.log("Dado(Resposta): X[" + c + "] = " + dado);
+		
+		X[c] = dado;												//Salva no Vetor na pos. *c que starta em *num
+		c--;														//Ajustando a próxima pos.
+
+		console.log("Vetor X: " + X);
+
+		dado = 0;
+		isFirst = 0;
+
+	}
+
+
+	X[0] = "Vetor X's";
+}
+
+function captaDado(l, c){
+	var x = document.getElementById("tabelaaspec").rows[l].cells;
+	var dado = x[c].firstChild.nodeValue;	
+	
+	dado = parseFloat(dado);											//convert to int;
+	
+	if(c != final){
+		dado = dado * X[c];											//multiplicando pela constante X do vetor correspondente a linha
+	}
+	console.log("entrou: " + dado);
+
+	return dado;
+
+}
+
+function foundX(){
+	if (Xencontrado != 1){
+
+		for(var i = 0; i < num; i++){
+			var table = document.getElementById("tabelaaspecX");
+			var row = table.insertRow(-1); 
+		}
+
+		for(var i = 1; i <= num; i++){
+			var row = document.getElementById("tabelaaspecX").rows[i].insertCell(-1);
+			row.innerHTML = "X[" + i +"] = " + X[i];		
+		}
+
+		Xencontrado = 1;
+	}
+
+}
+
+</script>
+
+
+
+</body>
+</html>

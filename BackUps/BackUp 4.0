@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml/DTD/xhtml-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+
+<head>
+	<script type="text/javascript" src ="JQuerys/jquery-3.2.1.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset-UTF-8"/>
+	<link rel="stylesheet" type="application/javascript" href="script.js">
+	<link rel="stylesheet" type="text/css" href="aspect.css">
+	<title>Funções Modificadoras</title>
+
+<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<style type="text/css">
+ body{
+    background: url(http://i.imgur.com/Xxg0rdj.jpg/1600/1200/sunset) no-repeat center top fixed;
+ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}	
+</style>
+
+<style>
+	th {
+    background-color: rgba(17, 15, 15, 0.24);
+    color: white;
+	}
+	tr:nth-child(even){
+		background-color: rgba(242, 242, 242, 0.19);
+	}
+	.tamanho {
+		border: 1px solid #606060;
+		border-spacing: 1px;
+		box-shadow: 3px;
+		width: 130px; 
+		height: 30px;
+	}
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		 <div class="panel panel-default" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg)">
+		  <div class="papel-body">
+
+		  	<div class="page-header"> 
+		  	<!-- cabeçalho-->
+		  		<h1>COMANDOS <br /><small> CRIAÇÃO DE MATRIZ</small></h1>
+		  	</div>
+		  	<form class="form-inline" id="Linha" method="get">
+		  	 <input type="text" id="newTask" placeholder="New Task" class="form-control" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg)" />
+
+		  	 <input type="button" id="add" name="btn btn-sucess" value="Add" onclick="mostrarValor()"/>
+		  	</form>
+		  	<br />
+
+			<div id = "centro">
+						
+				<button class="tamanho" onclick="doNow()">Fazer Matriz</button><br />
+				<button class="tamanho" onclick="newcell()">Add New Cell</button>
+				<button class="tamanho" onclick="removecell()">Remove Cell</button><br />
+				<button class="tamanho" onclick="createNewRow()">Add New Row</button>
+				<button class="tamanho" onclick="deleterow()">Remove Row</button><br />
+				<button class="tamanho" onclick="altervalues()">Alter Cell</button>
+				<button class="tamanho" onclick="createtable()">Create Table</button><br />
+			</div>
+		  </div>
+		 </div>
+		</div>
+
+
+		<div class="col-md-8" >
+		 <div class="panel panel-default" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg)">
+		  <div class="papel-body">
+		  	<div class="page-header" >
+		  	 <h1>MATRIZ <small> CRIAÇÃO COMPLETA</small></h1>
+		  	</div>
+
+			<div class="scrollbar-vista" style="overflow-x:auto; overflow-y: auto; width: 745px; height: 470px;">
+		  	<table id = "tabelaaspec"  >
+				<caption><h2>Matriz Gerada</h2></caption>
+						<tr id = "myRow">
+							<td>SeLoiroMTTrab</td>
+						</tr>	
+
+			</table><br>				
+			</div>
+				<input type="button" onclick="contaLinhasTabela('tabelaaspec');" value="Contar Matriz"/>
+		  </div>
+		 </div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+	var l = 0;
+	var num;
+	var tabExiste = 0;
+	num = prompt ("digite a quantidade de elementos da matriz: ");
+
+/*
+//onKeyPress="return submitenter(this,event)"
+function submitenter(myfield,e){
+	var keycode;
+	if (window.event) keycode = window.event.keyCode;
+	else if (e) keycode = e.which;
+	else return true;
+
+	if (keycode == 13){
+		myfield.form.submit();
+		return false;
+	}
+	else
+	return true;
+}*/
+/*
+// evento enter edittext
+$('#newTask').on('keypress', function(e) {
+    if (e.which == 13 || e.keyCode == 13) {
+
+        // desabilitando caixa de texto
+        $(this).attr("disabled", "disabled");
+        $(this).removeAttr("disabled");
+
+        mostrarValor();
+    }
+
+});*/
+
+$('input[type=text]').on('keydown', function(e) {
+    if (e.which == 13) {
+		e.preventDefault();
+		mostrarValor();
+    }
+});
+
+function contaLinhasTabela(id){  
+	var tabela = document.getElementById(id);  
+	var linhas = tabela.getElementsByTagName('tr');  
+	alert('A matriz "' + id +'" possui ' + (linhas.length - 1)+ ' linhas');  
+	alert('A matriz "' + id +'" possui ' + (linhas.length - 1)+ ' colunas');
+}  
+
+function newcell() {
+	var row = document.getElementById("myRow");
+	var x = row.insertCell(-1);
+	x.innerHTML = "0";
+	altervaluesR();
+}
+
+function completecells() {
+	for(var i = 0; i < num; i++){
+	    var row = document.getElementById("myRow");
+	    var x = row.insertCell(-1);
+	    x.innerHTML = "0";
+	}
+
+}
+
+function removecell() {
+    var row = document.getElementById("myRow");
+    row.deleteCell(-1);
+}
+
+function newrow() {
+    var table = document.getElementById("tabelaaspec");
+    var row = table.insertRow(-1);
+    for(var i = 0; i <= num; i++){
+    	var cell = row.insertCell(i);
+    	cell.innerHTML = "0";   	
+    }
+}
+
+function createNewRow() {
+    var table = document.getElementById("tabelaaspec");
+    var row = table.insertRow(-1);
+    for(var i = 0; i <= num; i++){
+    	var cell = row.insertCell(i);
+    	cell.innerHTML = "0";   	
+	}
+	altervaluesC();
+	l++;
+}
+
+function deleterow() {
+	var row = document.getElementById("tabelaaspec");
+    row.deleteRow(-1);
+	l--;
+}
+
+
+function altervalues() {
+	var l = prompt("Digite a Linha para Alterar: ");
+	var c = prompt("Digite a Coluna para Alterar: ");
+	var data = prompt("Digite o Dado para Alterar: ");
+
+	var x = document.getElementById("tabelaaspec").rows[l].cells;
+    x[c].innerHTML = data;	
+
+}
+
+function altervaluesLinha(l,c,dado){
+	var coluna = c+1;
+	var x = document.getElementById("tabelaaspec").rows[l].cells;
+    x[coluna].innerHTML = dado;
+}
+
+function altervaluesR() {
+	var x = document.getElementById("tabelaaspec").rows[0].cells;
+	
+	x[0].innerHTML = "Table";	
+	
+	var x = document.getElementById("tabelaaspec").rows[0].cells;
+
+	for(var i = 1; i <= num; i++){
+    	x[i].innerHTML = "X" + i;		
+	}
+
+}
+
+function altervaluesC() {
+	for(var i = 1; i <= num; i++){
+   		var x = document.getElementById("tabelaaspec").rows[i].cells;
+    	x[0].innerHTML = "Linha " + i;
+	}
+}
+
+function createtable() {
+	if(tabExiste == 1){
+		alert("Já existe uma tabela criada!!!");
+	}else{
+		completecells();
+		altervaluesR();
+		for(var i = 0; i < num; i++){
+			newrow();
+		}
+		altervaluesC();
+		tabExiste = 1;
+	}
+}
+
+
+function splitString(stringToSplit, separator) {
+	var arrayOfStrings = stringToSplit.split(separator);
+
+	console.log('A string original é: "' + stringToSplit + '"');
+	console.log('O separador é: "' + separator + '"');
+	console.log('O array tem ' + arrayOfStrings.length + ' elementos: ' + arrayOfStrings.join(' / '));
+	console.log(arrayOfStrings);
+
+	if(arrayOfStrings.length == num){
+		if(l == num){
+			alert("Impossivel criar novas linhas");
+		}else{
+			l++;
+		if(l<=num){
+		alert('!!Task Aceita!!');
+			for(var i = 0; i < num; i++){
+				altervaluesLinha(l,i,arrayOfStrings[i]);
+				console.log(arrayOfStrings[i]);
+			}
+		}
+		}
+
+
+	}else{
+		alert('Task Inválida');
+	}
+}
+
+function mostrarValor() {
+	if(tabExiste == 1){
+		//alert(document.getElementById("newTask").value);
+		var captura = document.getElementById("newTask").value;
+		document.getElementById("Linha").reset();
+		splitString(captura," ");
+	}else{
+		alert("Crie a tabela!!!");
+		
+	}
+
+}
+
+function doNow(){
+
+	var maior = 0;
+	var linha;
+	var teste;
+	if(tabExiste == 1){
+		
+		for(var i = 1; i <=num; i++){
+
+			for(var j = i; j <= num; j++){
+				
+				var x = document.getElementById("tabelaaspec").rows[j].cells;
+				
+				teste = x[i].firstChild.nodeValue;
+				teste = teste.toString();
+
+				if(teste > maior){
+					maior = teste;
+					linha = j;
+					//console.log(maior, linha);
+				}
+			}
+			
+			organiza(linha, i);
+			//console.log("Prox");		
+			if(i < num){
+				metodoDeGauss(i);
+			}
+			
+			maior = 0
+		}
+
+	}else{
+		alert("Crie a tabela!!!");
+	}	
+}
+
+function organiza(linhaMai, linhaMen){
+	var dado1;
+	var dado2;
+	//console.log("teste");
+	var x = document.getElementById("tabelaaspec").rows[linhaMai].cells;
+	var y = document.getElementById("tabelaaspec").rows[linhaMen].cells;
+
+	for(var i = 1; i <= num; i++){
+		dado1 = x[i].firstChild.nodeValue;
+		dado1 = dado1.toString();
+
+		dado2 = y[i].firstChild.nodeValue;
+		dado2 = dado2.toString();
+
+		y[i].innerHTML = dado1;
+		x[i].innerHTML = dado2;
+	}
+
+}
+
+function metodoDeGauss(linha){
+	var linhaPos = (linha + 1);
+	var achou;
+
+	var x = document.getElementById("tabelaaspec").rows[linha].cells;
+
+	for(var j = linhaPos; j <= num; j++){
+		var y = document.getElementById("tabelaaspec").rows[j].cells;		
+		achou = y[linha].firstChild.nodeValue;
+		achou = achou.toString();
+		//console.log("Achou "+achou);
+		if(achou != 0){
+			realizaGauss(linha, j);
+		}
+
+		achou = 0;
+
+	}
+
+}
+
+function realizaGauss(linhaI, linhaJ){
+	var dado1;
+	var dado2;
+	var dado3;
+	var dado4;
+	var resp;
+	console.log("vai zerar na linha " +linhaI+ ", com a linha " +linhaJ);
+	var x = document.getElementById("tabelaaspec").rows[linhaI].cells;
+	var y = document.getElementById("tabelaaspec").rows[linhaJ].cells;
+
+	for(var i = linhaI; i <= num; i++){
+
+		var x = document.getElementById("tabelaaspec").rows[linhaI].cells;
+		var y = document.getElementById("tabelaaspec").rows[linhaJ].cells;
+
+		dado1 = x[i].firstChild.nodeValue;
+		dado1 = dado1.toString();
+
+		dado2 = y[i].firstChild.nodeValue;
+		dado2 = dado2.toString();
+
+		if(i == linhaI){
+			dado3 = dado1;
+			dado4 = dado2;
+		}
+
+		console.log(dado1, dado2);
+
+		resp = ( dado1 * dado4 - ( dado2 * dado3 ) );
+		console.log(resp);
+
+		y[i].innerHTML = resp;
+	}
+	alert("chegou em um ponto de stop");
+}
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+body{
+    background: url(https://i.imgur.com/X3aEM0w.jpg) no-repeat center top fixed;
+ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+table#tabelaaspec{
+
+	border: 2px solid #333333;
+	border-spacing: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 3px;
+}
+
+table#tabelaaspec td{
+
+	border: 2px solid #000000;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+    font-size: 20px;
+    color: #EEEEEE;
+}
+
+table#tabelaaspecX{
+    
+        border: 2px solid #333333;
+        border-spacing: 1px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 3px;
+}
+    
+table#tabelaaspecX td{
+
+    border: 2px solid #000000;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    color: #EEEEEE;
+}
+
+#botoes, #button, #foundXTri, #foundXSin {
+    display: none;
+}
+
+#dropdown {
+    width:auto;
+    height:auto;
+    top:50%;
+    left:auto;
+    margin-top:50px;
+    margin-left:50px;
+}
+
+.page-header {
+    height: 70px;
+    width: auto;
+}
+
+.panel-default {
+    height: 628px;
+    width: auto;
+    background-image:url(https://i.imgur.com/KDhhtlS.jpg);
+    background-size: 800px;
+}
+
+#check {
+    display: none;
+}
+
+#checkX {
+    display: none;
+}
+
+#icone {
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+#iconeX {
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+.barra {
+    background-color: #333;
+    height: 100%;
+    width: 300px;
+    position: absolute;
+    background-color: rgb(0, 0, 0, .6);
+    transition: all .4s linear;
+    left: -300px;
+    box-shadow: 3px;
+}
+
+.barraX {
+    background-color: rgba(110, 106, 106, 0.29);
+    height: 100%;
+    width: 300px;
+    position: absolute;
+    background-color: rgba(58, 54, 54, 0.86);
+    transition: all .2s linear;
+    right: -300px;
+    box-shadow: 3px;
+    border: solid;
+}
+
+th {
+    background-color: rgba(153, 50, 50, 0.24);
+    color: white;
+}
+
+tr:nth-child(even){
+    background-color: rgba(242, 242, 242, 0.19);
+}
+
+.tamanho{
+    border: 1px solid #606060;
+    border-spacing: 1px;
+    box-shadow: 3px;
+    width: 130px; 
+    height: 30px;
+}
+
+.tamanho:hover, .add:hover, .cont:hover, .music-form:hover  {
+    background-color: rgba(4, 4, 173, 0.47); 
+    transition: all .2s linear;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #000000;
+}
+
+nav{
+    width: 100%;
+    position: absolute;
+    top: 60px;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+.link {
+    background-color: #494950;
+    padding: 20px;
+    font-family: 12pt;
+    transition: all .2s linear;
+    color: #f4f4f9;
+    border-bottom: 2px solid #222;
+    opacity: 0;
+    margin-top: 200px;
+}
+
+.link:hover {
+    background-color: #050542; 
+}
+
+#check:checked ~ .barra{
+    transform: translateX(250px);
+}
+
+#check:checked ~ .barra nav a .link{
+    opacity: 1;
+    margin-top: 0;
+    transition-delay: .3s;
+}
+
+#check:checked ~ .container{
+    transform: translateX(200px);
+}
+
+#check:checked ~ .container nav a .row{
+    opacity: 1;
+    margin-top: 0;
+    transition-delay: .3s;
+}
+
+#checkX:checked ~ .barraX{
+    transform: translateX(-250px);
+}
+
+
+.logoType {
+    position: relative;    
+    transition: all .4s linear;
+    border-spacing: 1px;
+    box-shadow: 1px;
+    top: 500px;
+    width:250px;
+    height: auto;
+    left: 50px;
+}
+
+.logoType:hover {
+    background-color: #050542;
+    animation: shake 0.5s; 
+    animation-iteration-count: .5s; 
+}
+
+.logoTypeX {
+    position: relative;    
+    transition: all .4s linear;
+    border-spacing: 1px;
+    box-shadow: 1px;
+    top: 350px;
+    width:250px;
+    height: auto;
+}
+
+.logoTypeX:hover {
+    background-color: #050542;
+    animation: shake 0.5s; 
+    animation-iteration-count: .5s; 
+}
+
+.discord:hover, .X:hover{
+    animation: shake 0.5s; 
+    animation-iteration-count: .5s; 
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+#centro {
+    width:auto;
+    height:auto;
+    top:50%;
+    left:auto;
+    margin-top:50px;
+    margin-left:50px;
+}
+
+.menu {
+    overflow: hidden;
+    transition: all .2s;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li span {
+    float: right;
+    padding-right: 10px; 
+}
+
+ul li a:hover{
+    background-color: #050542;
+}
+
+.voltar {
+    margin-top: 60px;
+    background-color: #494950;
+}
+
+#Vitor, #Joao{
+    width: 250px;
+    left: -250px;
+}
+
+#Vitor:target, #Joao:target {
+    transform: translateX(250px);
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,.5);
+    border: 1px solid rgba(73, 73, 80, 0.68);
+}
+
+
+
+.scroll-wrapper {
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative;
+}
+ 
+.scroll-wrapper > .scroll-content {
+    border: none !important;
+    box-sizing: content-box !important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none !important;
+    overflow: scroll !important;
+    padding: 0;
+    position: relative !important;
+    top: 0;
+    width: auto !important;
+}
+ 
+.scroll-wrapper > .scroll-content::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+ 
+.scroll-element {
+    display: none;
+}
+.scroll-element, .scroll-element div {
+    box-sizing: content-box;
+}
+ 
+.scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-element.scroll-y.scroll-scrolly_visible {
+    display: block;
+}
+ 
+.scroll-element .scroll-bar,
+.scroll-element .scroll-arrow {
+    cursor: default;
+}
+ 
+.scroll-textarea {
+    border: 1px solid #cccccc;
+    border-top-color: #999999;
+}
+.scroll-textarea > .scroll-content {
+    overflow: hidden !important;
+}
+.scroll-textarea > .scroll-content > textarea {
+    border: none !important;
+    box-sizing: border-box;
+    height: 100% !important;
+    margin: 0;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: scroll !important;
+    outline: none;
+    padding: 2px;
+    position: relative !important;
+    top: 0;
+    width: 100% !important;
+}
+.scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+ 
+ 
+ 
+ 
+/******************* WINDOWS VISTA SCROLLBAR *******************/
+ 
+.scrollbar-vista > .scroll-content.scroll-scrolly_visible { left: -17px; margin-left: 17px; }
+.scrollbar-vista > .scroll-content.scroll-scrollx_visible { top:  -17px; margin-top:  17px; }
+ 
+ 
+.scrollbar-vista > .scroll-element {
+    background-color: #fcfdff;
+}
+ 
+.scrollbar-vista > .scroll-element,
+.scrollbar-vista > .scroll-element div
+{
+    border: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+}
+ 
+.scrollbar-vista > .scroll-element .scroll-element_outer,
+.scrollbar-vista > .scroll-element .scroll-element_size,
+.scrollbar-vista > .scroll-element .scroll-element_inner-wrapper,
+.scrollbar-vista > .scroll-element .scroll-element_inner,
+.scrollbar-vista > .scroll-element .scroll-bar,
+.scrollbar-vista > .scroll-element .scroll-bar div
+{
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+ 
+.scrollbar-vista > .scroll-element .scroll-element_outer,
+.scrollbar-vista > .scroll-element .scroll-element_size,
+.scrollbar-vista > .scroll-element .scroll-element_inner-wrapper,
+.scrollbar-vista > .scroll-element .scroll-bar_body
+{
+    background: none !important;
+}
+ 
+ 
+.scrollbar-vista > .scroll-element.scroll-x {
+    border-top: solid 1px #fcfdff;
+    bottom: 0;
+    height: 16px;
+    left: 0;
+    min-width: 100%;
+    width: 100%;
+}
+ 
+.scrollbar-vista > .scroll-element.scroll-y {
+    border-left: solid 1px #fcfdff;
+    height: 100%;
+    min-height: 100%;
+    right: 0;
+    top: 0;
+    width: 16px;
+}
+ 
+.scrollbar-vista > .scroll-element.scroll-x div {
+    background-image: url('skins/vista-x.png');
+    background-repeat: repeat-x;
+}
+ 
+.scrollbar-vista > .scroll-element.scroll-y div {
+    background-image: url('skins/vista-y.png');
+    background-repeat: repeat-y;
+}
+ 
+.scrollbar-vista > .scroll-element.scroll-x .scroll-arrow
+ 
+.scrollbar-vista > .scroll-element.scroll-x .scroll-bar { min-width: 16px; background-position: 0px -34px; background-repeat: no-repeat; }
+.scrollbar-vista > .scroll-element.scroll-x .scroll-bar_body { left: 2px; }
+.scrollbar-vista > .scroll-element.scroll-x .scroll-bar_body-inner { left: -4px; background-position: 0px -17px; }
+.scrollbar-vista > .scroll-element.scroll-x .scroll-bar_center { left: 50%; margin-left: -6px; width: 12px; background-position: 24px -34px; }
+.scrollbar-vista > .scroll-element.scroll-x .scroll-bar_bottom { left: auto; right: 0; width: 2px; background-position: 37px -34px; }
+ 
+ 
+.scrollbar-vista > .scroll-element.scroll-y .scroll-bar { min-height: 16px; background-position: -34px 0px; background-repeat: no-repeat; }
+.scrollbar-vista > .scroll-element.scroll-y .scroll-bar_body { top: 2px; }
+.scrollbar-vista > .scroll-element.scroll-y .scroll-bar_body-inner { top: -4px; background-position: -17px 0px; }
+.scrollbar-vista > .scroll-element.scroll-y .scroll-bar_center { top: 50%; margin-top: -6px; height: 12px; background-position: -34px 24px; }
+.scrollbar-vista > .scroll-element.scroll-y .scroll-bar_bottom { top: auto; bottom: 0; height: 2px; background-position: -34px 37px; }
+ 
+ 
+ 
+/* SCROLL ARROWS */
+ 
+.scrollbar-vista > .scroll-element .scroll-arrow { display: none; }
+.scrollbar-vista > .scroll-element.scroll-element_arrows_visible .scroll-arrow { display: block; z-index: 12; }
+ 
+ 
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible .scroll-arrow_less { height: 100%; width: 17px; background-position: 0px -51px;}
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible .scroll-arrow_more { height: 100%; left: auto; right: 0; width: 17px; background-position: 17px -51px;}
+ 
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible .scroll-element_outer { left: 17px; }
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible .scroll-element_inner { left: -34px; }
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible .scroll-element_size { left: -34px; }
+ 
+ 
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-arrow_less { width: 100%; height: 17px; background-position: -51px 0px;}
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-arrow_more { width: 100%; top: auto; bottom: 0; height: 17px; background-position: -51px 17px;}
+ 
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-element_outer { top: 17px; }
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-element_inner { top: -34px; }
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-element_size { top: -34px; }
+ 
+ 
+/* PROCEED OFFSET IF ANOTHER SCROLL VISIBLE */
+ 
+.scrollbar-vista > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size { left: -17px; }
+.scrollbar-vista > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size { top: -17px; }
+ 
+.scrollbar-vista > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_inner { left: -17px; }
+.scrollbar-vista > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_inner { top: -17px; }
+ 
+ 
+/* PROCEED OFFSET IF ARROWS & ANOTHER SCROLL */
+ 
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible.scroll-scrolly_visible .scroll-arrow_more { right: 17px;}
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible.scroll-scrolly_visible .scroll-element_inner { left: -51px;}
+.scrollbar-vista > .scroll-element.scroll-x.scroll-element_arrows_visible.scroll-scrolly_visible .scroll-element_size { left: -51px;}
+ 
+ 
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible.scroll-scrollx_visible .scroll-arrow_more { bottom: 17px;}
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible.scroll-scrollx_visible .scroll-element_inner { top: -51px;}
+.scrollbar-vista > .scroll-element.scroll-y.scroll-element_arrows_visible.scroll-scrollx_visible .scroll-element_size { top: -51px;}

@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml/DTD/xhtml-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+
+<head>
+	<script type="text/javascript" src ="JQuerys/jquery-3.2.1.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset-UTF-8"/>
+	<link rel="stylesheet" type="application/javascript" href="script.js">
+	<link rel="stylesheet" type="text/css" href="aspect.css">
+	<title>Funções Modificadoras</title>
+
+<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<style type="text/css">
+ body{
+    background: url(http://i.imgur.com/Xxg0rdj.jpg/1600/1200/sunset) no-repeat center top fixed;
+ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}	
+</style>
+
+<style>
+	.tamanho {
+		border: 1px solid #606060;
+		border-spacing: 1px;
+		box-shadow: 3px;
+		width: 130px; 
+		height: 30px;
+	}
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		 <div class="panel panel-default" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg)">
+		  <div class="papel-body">
+
+		  	<div class="page-header"> 
+		  	<!-- cabeçalho-->
+		  		<h1>COMANDOS <br /><small> CRIAÇÃO DE MATRIZ</small></h1>
+		  	</div>
+		  	<form class="form-inline" method="get" id="Linha">
+
+				<input type="text" id="newTaskMatriz" placeholder="New Task" class="form-control" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg) " />
+
+				<input type="button" id="addMatriz" name="btn btn-sucess" value="Add" onclick="criarMatriz()"/>
+
+		  		<input type="text" id="newTask" placeholder="New Task" class="form-control" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg) " />
+
+				<input type="button" id="add" name="btn btn-sucess" value="Add" onclick="mostrarValor()"/>
+
+			   
+		  	<br />
+
+			<div id = "centro">
+					
+				<button class="tamanho" onclick="newcell()">Add New Cell</button>
+				<button class="tamanho" onclick="removecell()">Remove Cell</button><br />
+				<button class="tamanho" onclick="newrow()">Add New Row</button>
+				<button class="tamanho" onclick="deleterow()">Remove Row</button><br />
+				<button class="tamanho" onclick="altervalues()">Alter Cell</button>
+				<button class="tamanho" onclick="createtable()">Create Table</button><br />
+			</div>
+		  </div>
+		 </div>
+		</div>
+
+
+		<div class="col-md-8">
+		 <div class="panel panel-default" style="background-image:url(http://i.imgur.com/xKJuN7a.jpg)">
+		  <div class="papel-body" overflow:scroll;>
+		  	<div class="page-header" >
+		  	 <h1>MATRIZ <small> CRIAÇÃO COMPLETA</small></h1>
+		  	</div>
+
+		  	<table id = "tabelaaspec">
+				<caption><h2>Matriz Gerada</h2></caption>
+					<tr id = "myRow">
+						<td>SeLoiroMTTrab</td>
+					</tr>
+			</table><br>
+				<input type="button" onclick="contaLinhasTabela('tabelaaspec');" value="Contar Linhas"/>
+		  </div>
+		 </div>
+		</div>
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+
+	
+	var num;
+
+function criarMatriz(){
+	num = document.getElementById("newTaskMatriz").value;
+}
+
+function contaLinhasTabela(id){  alert('1');
+	var tabela = document.getElementById(id);  
+	var linhas = tabela.getElementsByTagName('tr');  
+	alert('A tabela ' + id +' possui ' + (linhas.length - 1)+ ' linhas');  
+	alert('A tabela ' + id +' possui ' + (linhas.length - 1)+ ' colunas');
+}  
+
+function newcell() {alert('2');
+	var row = document.getElementById("myRow");
+	var x = row.insertCell(-1);
+	x.innerHTML = "0";
+}
+
+function completecells() {alert('3');
+	for(var i = 0; i < num; i++){
+	    var row = document.getElementById("myRow");
+	    var x = row.insertCell(-1);
+	    x.innerHTML = "0";
+	}
+
+}
+
+function removecell() {alert('4');
+    var row = document.getElementById("myRow");
+    row.deleteCell(-1);
+}
+
+function newrow() {alert('5');
+    var table = document.getElementById("tabelaaspec");
+    var row = table.insertRow(-1);
+    for(var i = 0; i <= num; i++){
+    	var cell = row.insertCell(i);
+    	cell.innerHTML = "0";   	
+    }
+
+}
+
+function deleterow() {alert('6');
+	var row = document.getElementById("tabelaaspec");
+    row.deleteRow(-1);
+}
+
+
+function altervalues() {alert('7');
+	var l = prompt("Digite a Linha para Alterar: ");
+	var c = prompt("Digite a Coluna para Alterar: ");
+
+	var x = document.getElementById("tabelaaspec").rows[l].cells;
+    x[c].innerHTML = "NEW";	
+
+}
+
+function altervaluesR() {alert('8');
+	var x = document.getElementById("tabelaaspec").rows[0].cells;
+	
+	x[0].innerHTML = "Table";	
+	
+	var x = document.getElementById("tabelaaspec").rows[0].cells;
+
+	for(var i = 1; i <= num; i++){
+    	x[i].innerHTML = "X" + i;		
+	}
+
+}
+
+function altervaluesC() {alert('9');
+	for(var i = 1; i <= num; i++){
+   		var x = document.getElementById("tabelaaspec").rows[i].cells;
+    	x[0].innerHTML = "Linha " + i;
+	}
+}
+
+function createtable() {alert('10');
+	completecells();
+	altervaluesR();
+	for(var i = 0; i < num; i++){
+		newrow();
+	}
+	altervaluesC();
+}
+
+
+function splitString(stringToSplit, separator) {alert('11');
+  var arrayOfStrings = stringToSplit.split(separator);
+
+	console.log('A string original é: "' + stringToSplit + '"');
+	console.log('O separador é: "' + separator + '"');
+	console.log('O array tem ' + arrayOfStrings.length + ' elementos: ' + arrayOfStrings.join(' / '));
+	console.log(arrayOfStrings);
+
+	if(arrayOfStrings.length == num){
+		alert('!!Task Aceita!!');
+	} else{
+		alert('Task Inválida');
+	}
+}
+
+function mostrarValor() {alert('12');
+	alert(document.getElementById("newTask").value);
+	var captura = document.getElementById("newTask").value;
+	//document.getElementById("Linha").reset();
+	splitString(captura, " ");
+}
+
+
+
+</script>
+</body>
+</html>

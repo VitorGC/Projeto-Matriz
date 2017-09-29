@@ -1,0 +1,10 @@
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_tr_rowindex
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split
+https://www.w3schools.com/jsref/jsref_split.asp
+https://www.w3schools.com/html/html_tables.asp
+https://forum.codigofonte.net/topic/21201-alterar-tabela/
+https://www.w3schools.com/jsref/
+https://forum.imasters.com.br/topic/305670-texto-para-fora-do-div/
+http://www.clubedohardware.com.br/forums/topic/817023-colocar-barra-de-rolagem-em-uma-tabela/
+https://pt.stackoverflow.com/questions/113727/inserir-uma-informa%C3%A7%C3%A3o-em-uma-table-com-javascript
+https://forum.imasters.com.br/topic/511631-inserir-conte%C3%BAdo-em-tabela-html-dinamicamente-com-javascript/
