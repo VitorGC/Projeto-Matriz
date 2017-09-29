@@ -650,13 +650,14 @@ function findX(){
 function captaDado(l, c){	//Obtendo o valor do conteudo da celula da tabela e multiplicando por x
 	var x = document.getElementById("tabelaaspec").rows[l].cells;
 	var dado = x[c].firstChild.nodeValue;	
-	
-	if(c != final){														//Final é o B, logo n multiplica a constante por X nenhum
-		dado = dado * X[c];												//multiplicando pela constante X do vetor correspondente a linha
+	var aux;
+	if(c != final){	
+		aux = parseFloat(X[c]);												//Final é o B, logo n multiplica a constante por X nenhum
+		dado = dado * aux;													//multiplicando pela constante X do vetor correspondente a linha
 	}
 	
-	dado = parseFloat(dado);												//convert to Int;
-	console.log("entrou: " + dado);
+	dado = parseFloat(dado);												//convert to Float;
+	console.log("Dado["+l+"]: " + dado + " AUX = "+aux);
 
 	return dado;
 
@@ -683,9 +684,6 @@ function foundXTri(){			//Monta a coluna de exibição X ja atribuindo o valor c
 function foundXSin(linha){
 	var i=0;
 
-
-
-		
 	var table = document.getElementById("tabelaaspecX");
   	var row = table.insertRow(-1);
 
@@ -702,7 +700,6 @@ function foundXSin(linha){
     	cell = row.insertCell(i);
     	cell.innerHTML = "X[" + i +"] = " + X[i];   	
 	}
-
 }
 
 function calculagauss(){	//Prepara e executa o metodo de gauss sindel
