@@ -8,7 +8,7 @@ body{
 }
 
 table#tabelaaspec{
-
+    white-space: nowrap;
 	border: 2px solid #333333;
 	border-spacing: 1px;
 	margin-left: auto;
@@ -17,7 +17,7 @@ table#tabelaaspec{
 }
 
 table#tabelaaspec td{
-
+    white-space: nowrap;
 	border: 2px solid #000000;
 	padding: 10px;
 	margin-left: auto;
@@ -27,7 +27,7 @@ table#tabelaaspec td{
 }
 
 table#tabelaaspecX{
-    
+        white-space: nowrap;
         border: 2px solid #333333;
         border-spacing: 1px;
         margin-left: auto;
@@ -36,7 +36,7 @@ table#tabelaaspecX{
 }
     
 table#tabelaaspecX td{
-
+    white-space: nowrap;
     border: 2px solid #000000;
     padding: 10px;
     margin-left: auto;
